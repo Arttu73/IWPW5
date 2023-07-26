@@ -176,6 +176,14 @@ module.hot.accept(reloadCSS);
 "use strict";
 
 require("./styles.css");
+var url = "https://geo.stat.fi/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeName=tilastointialueet:kunta4500k&outputFormat=json&srsName=EPSG:4326 ";
+var dataPromise = await fetch(url);
+var dataGSON = await dataPromise.dataGSON();
+var map = L.map('map').setView([61.05, 28.1], 100);
+var osm = L.tilelayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  minZoom: -3,
+  attribution: '© OpenStreetMap'
+}).addTo(map);
 },{"./styles.css":"src/styles.css"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
