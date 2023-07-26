@@ -1,7 +1,3 @@
-import "./styles.css";
-import "./leaflet.css";
-import L from "./leaflet";
-import "./styles.css";
 
 const fetchData = async () => {
     try {
@@ -26,7 +22,7 @@ const initMap = (data) => {
         weight: 2
     }).addTo(map);
 
-    let osm = L.tilelayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    let osm = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
     attribution: '© OpenStreetMap'
     }).addTo(map);
